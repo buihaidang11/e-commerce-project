@@ -5,7 +5,7 @@
                 class="img-fluid rounded-circle">
         </div>
         <div class="title">
-            <h1 class="h5">Mark Stephen</h1>
+            <h1 class="h5">{{ Auth::user()->name }}</h1>
             <p>Web Designer</p>
         </div>
     </div>

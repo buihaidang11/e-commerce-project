@@ -89,9 +89,9 @@ class AdminController extends Controller
         toastr()->timeOut(1000)->addSuccess('Product Deleted Successfully');
         return redirect()->back();
     }
-    public function edit_product($id)
+    public function edit_product($slug)
     {
-        $product = Product::find($id);
+        $product = Product::where('slug', $slug)->get()->first();
         $category = Category::all();
 
         return view('admin.edit_product', compact('product', 'category'));

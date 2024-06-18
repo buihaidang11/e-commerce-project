@@ -57,7 +57,7 @@
                             <input class="btn btn-primary my-2" type="submit" value="Edit Product">
                         </form>
                     </div>
-                    <a class="btn btn-success" href="{{ url('/view_category') }}">Return</a>
+                    <a class="btn btn-success" href="{{ url('/view_product') }}">Return</a>
                 </div>
             </div>
         </div>

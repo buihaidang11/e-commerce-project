@@ -21,6 +21,13 @@ Route::get('/', [HomeController::class, 'home']);
 
 Route::get('/product_details/{id}', [HomeController::class, 'product_details']);
 Route::get('/product_details/{id}', [HomeController::class, 'product_details']);
+Route::get('/shop', [HomeController::class, 'shop']);
+Route::get('/why', [HomeController::class, 'why']);
+Route::get('/testimonial', [HomeController::class, 'testimonial']);
+Route::get('/contact_us', [HomeController::class, 'contact_us']);
+
+
+
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('stripe/{value}', 'stripe');
@@ -52,7 +59,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('add_product', [AdminController::class, 'store_product']);
     Route::get('view_product', [AdminController::class, 'view_product']);
     Route::get('delete_product/{id}', [AdminController::class, 'delete_product']);
-    Route::get('edit_product/{id}', [AdminController::class, 'edit_product']);
+    Route::get('edit_product/{slug}', [AdminController::class, 'edit_product']);
     Route::post('edit_product/{id}', [AdminController::class, 'update_product']);
     Route::get('product_search', [AdminController::class, 'product_search']);
     Route::get('view_orders', [AdminController::class, 'view_orders']);

@@ -55,7 +55,8 @@
                                             class="img-thumbnail" alt="">
                                     </td>
                                     <td class="text-center align-middle">
-                                        <a href="{{ url('edit_product', $item->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ url('edit_product', $item->slug) }}"
+                                            class="btn btn-success">Edit</a>
                                         <a onclick="confirmation(event)" class="btn btn-danger"
                                             href="{{ url('delete_product', $item->id) }}">Delete</a>
                                     </td>

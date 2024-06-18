@@ -16,6 +16,7 @@
         <div class="page-content">
             <div class="page-header">
                 <div class="container-fluid">
+                    <h2 class="pb-4">All Orders</h2>
                     <table class="table table-dark">
                         <thead>
                             <tr>
@@ -26,6 +27,7 @@
                                 <th class="text-center" scope="col">Product Title</th>
                                 <th class="text-center" scope="col">Price</th>
                                 <th class="text-center" scope="col">Image</th>
+                                <th class="text-center" scope="col">Payment Status</th>
                                 <th class="text-center" scope="col">Status</th>
                                 <th class="text-center" scope="col">Change Status</th>
                                 <th></th>
@@ -41,11 +43,11 @@
                                     <td class="text-center align-middle">{{ $item->product->title }}</td>
                                     <td class="text-center align-middle">{{ $item->product->price }}</td>
                                     <td class="text-center align-middle">
-                                        <img style="width:120px; height:120px"
-                                            src="product_images/{{ $item->product->image }}" class="img-thumbnail"
+                                        <img style="width:100px; height:90px"
+                                            src="product_images/{{ $item->product->image }}" class=""
                                             alt="">
                                     </td>
-
+                                    <td class="text-center align-middle">{{ $item->payment_status }}</td>
                                     </td>
                                     @if ($item->status == 'in progress')
                                         <td class="text-center align-middle text-primary">

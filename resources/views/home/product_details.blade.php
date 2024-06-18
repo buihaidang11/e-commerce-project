@@ -55,9 +55,11 @@
                         New
                     </span>
                 </div>
+                <a class="add-to-cart-btn btn btn-success px-2 text-white" data-product-id="{{ $product->id }}"
+                    href="#">Buy</a>
             </div>
             <div class="py-2 ">
-                <a class="btn btn-success px-4 text-white" href="{{ url('/') }}">Back</a>
+                <a class="btn btn-secondary px-4 text-white" href="{{ url('/') }}">Back</a>
             </div>
 
     </section>
@@ -75,3 +77,24 @@
 </body>
 
 </html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-cart-btn').click(function(e) {
+            e.preventDefault();
+
+            var product_id = $(this).data('product-id');
+
+            $.ajax({
+                type: 'GET',
+                url: '/add_cart/' + product_id,
+                success: function(data) {
+                    alert('Sản phẩm đã được thêm vào giỏ hàng!');
+                },
+                error: function(xhr) {
+                    alert('Lỗi khi thêm sản phẩm vào giỏ hàng.');
+                }
+            });
+        });
+    });
+</script>

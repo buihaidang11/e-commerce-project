@@ -35,9 +35,61 @@ class HomeController extends Controller
         } else {
             $count = '';
         }
-
-
         return view('home.index', compact('product', 'count'));
+    }
+    public function shop()
+    {
+        $product = Product::all();
+
+        if (Auth::id()) {
+            $user = Auth::user();
+
+            $user_id = $user->id;
+
+            $count = Cart::where('user_id', $user_id)->count();
+        } else {
+            $count = '';
+        }
+        return view('home.shop', compact('product', 'count'));
+    }
+    public function why()
+    {
+        if (Auth::id()) {
+            $user = Auth::user();
+
+            $user_id = $user->id;
+
+            $count = Cart::where('user_id', $user_id)->count();
+        } else {
+            $count = '';
+        }
+        return view('home.why', compact('count'));
+    }
+    public function testimonial()
+    {
+        if (Auth::id()) {
+            $user = Auth::user();
+
+            $user_id = $user->id;
+
+            $count = Cart::where('user_id', $user_id)->count();
+        } else {
+            $count = '';
+        }
+        return view('home.testimonial', compact('count'));
+    }
+    public function contact_us()
+    {
+        if (Auth::id()) {
+            $user = Auth::user();
+
+            $user_id = $user->id;
+
+            $count = Cart::where('user_id', $user_id)->count();
+        } else {
+            $count = '';
+        }
+        return view('home.contact_us', compact('count'));
     }
     public function login_home()
     {
